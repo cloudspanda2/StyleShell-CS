@@ -1,4 +1,4 @@
-﻿using StyleShell.Assembly;
+﻿using StyleShell.Debug;
 
 namespace StyleShell {
 
@@ -13,6 +13,7 @@ namespace StyleShell {
         /// <param name="args">Argumentos passsados na chamada da linha de comando do StyleShell</param>
         public static void Main(string[] args) {
             Console.WriteLine("Hello World!");
+            FirstRunModule();
         }
 
         /// <summary>
@@ -20,11 +21,11 @@ namespace StyleShell {
         /// </summary>
         public static void FirstRunModule() {
             try {
-                // Verifica o caminho relativo a pasta de configurações, a ".styleshell"
-                if (File.Exists(ProjectStorage.Root + "default.json")) return;
-
+                Console.WriteLine("causando uma crash no meme aq, divindo 0 por 0 :3");
+                int cu = 0;
+                int x = 0 / cu;
             } catch (Exception e) {
-
+                SecurityManager.Catch(e, "Ponto de partida (Program.Main())");
             }
         }
 
