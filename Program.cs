@@ -1,4 +1,4 @@
-﻿using StyleShell.Debug;
+﻿using StyleShell.Security;
 
 namespace StyleShell {
 
@@ -21,9 +21,7 @@ namespace StyleShell {
         /// </summary>
         public static void FirstRunModule() {
             try {
-                Console.WriteLine("causando uma crash no meme aq, divindo 0 por 0 :3");
-                int cu = 0;
-                int x = 0 / cu;
+
             } catch (Exception e) {
                 SecurityManager.Catch(e, "Ponto de partida (Program.Main())");
             }
