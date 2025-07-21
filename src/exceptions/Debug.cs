@@ -15,7 +15,7 @@ namespace StyleShell.Security {
         /// <param name="exception">Modelo genérico de qualquer tipo derivado de uma exceção, serve para tratamento void-side</param>
         /// <param name="location">A localização mais explícita do código onde isso ocorreu, ou seja, um local mais claro de onde ocorreu</param>
         /// <returns>Não retorna nenhum valor, porém, causa uma exceção também, em qualquer erro, fazendo StyleShell fechar</returns>
-        public static void Catch(Exception exception, string? location) {
+        public static void Catch(Exception exception, string? location, bool kill = true) {
             // Define o FileStream do arquivo para poder fechar
             FileStream? JournalFile = null;
 
@@ -28,7 +28,7 @@ namespace StyleShell.Security {
 
                     // Primeiro, consegue o tipo de erro
                     if (exception.GetType().Name != null) CatchInnerType = exception.GetType().Name;
-                    else CatchInnerType = "[G]UnknownError";
+                    else CatchInnerType = "[S]UnknownError";
 
                     // Segundo, determina se o local relativo de ocorrência é valido para essa Catch
                     if (location != null) vLocation = location;
@@ -95,8 +95,8 @@ namespace StyleShell.Security {
                 // Verifica se o arquivo está aberto para evitar qualquer vazamento de informações
                 JournalFile?.Close();
 
-                // Agora de forma segura finaliza o programa, por ser o comportamento padrão dele
-                Integrity.FinalizeDestinguer(CatchException ?? exception);
+                // Agora de forma segura determina se deve finalizar o programa
+                if (kill) Integrity.FinalizeDestinguer(CatchException ?? exception);
             } 
         }
 

@@ -47,7 +47,7 @@ namespace StyleShell.Assembly.Config {
                 }
             } catch (Exception e) {
                 // Reporta para o sistema informações do erro
-                SecurityManager.Catch(e, "StyleShell.Assembly.Config.Defaults.Get();");
+                SecurityManager.Catch(e, "Função pública estática de obter configurações do StyleShell");
                 // Retorna um valor nulo como base
                 return null;
             }
@@ -81,7 +81,7 @@ namespace StyleShell.Assembly.Config {
                 }
             } catch (Exception e) {
                 // Envia para o tratamento de erros do sistema, essa exceção
-                SecurityManager.Catch(e, $"StyleShell.Assembly.Config.Defaults.Save(parse='{parse}');");
+                SecurityManager.Catch(e, $"Função pública e estática de salvar configurações -> Carrega (parse='{parse}');");
                 // Retorna nulo para indicar falha
                 return null;
             }

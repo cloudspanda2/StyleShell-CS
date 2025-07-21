@@ -39,6 +39,11 @@ namespace StyleShell.Assembly {
             /// Local padrão de inserção do arquivo de configurações do StyleShell
             /// </summary>
             public static string Settings { get; } = Path.Combine(Root, "defaults.json");
+
+            /// <summary>
+            /// O Local padrão onde se encontra o arquivo de histórico de comandos do terminal
+            /// </summary>
+            public static string History { get; } = Path.Combine(Root, "history.json");
         }
 
         /// <summary>
