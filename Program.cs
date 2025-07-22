@@ -36,14 +36,14 @@ namespace StyleShell {
                     List<string>? UserShellHistory = LoadShellHistory();
 
                     // Cria e inicializa uma ConsoleThread para a animação inicial
-                    Thread ConsoleSplash = new(SConsole.HitLoadingSplash);
+                    Thread ConsoleSplash = new(Konsole.HitLoadingSplash);
                     ConsoleSplash.Start();
 
-                    // Define a cor padrão de texto do StyleShell
-                    Console.ForegroundColor = SConsole.DispatchColor(null, true);
+                    // Define a cor padrão de várias outputs do StyleShell
+                    Konsole.LoadKonsoleColors();
 
                     // Finaliza a ConsoleThread de carregamento e espera um pouco
-                    SConsole.LoadingTextAnimationDisabled = true;
+                    Konsole.AbortLoadingText = true;
                     ConsoleSplash.Join();
 
                     // Imprime um textinho
